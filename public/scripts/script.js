@@ -7,6 +7,7 @@ myApp.controller('AssignmentController', function($http) {
 
   vm.allRecords = [];
 
+  // function to add a record (all four inputs)
   vm.addAssignment = function(){
     console.log('add button clicked');
 
@@ -26,6 +27,7 @@ myApp.controller('AssignmentController', function($http) {
     });
   }; // end addAssignment
 
+  // function to get all records from db
   vm.getAll = function(){
     console.log('in getAll');
 
@@ -36,6 +38,16 @@ myApp.controller('AssignmentController', function($http) {
       console.log(response.data);
       vm.allRecords = response.data;
     });
-  };
+  }; //end getAll
+
+  vm.search = function() {
+    console.log('in search');
+    $http({
+      method: 'GET',
+      url: '/assignments/:name?'
+    }).then(function(response){
+      console.log(response.data);
+    });
+  }; // end search function
 
 }); // end controller

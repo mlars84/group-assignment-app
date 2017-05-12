@@ -16,6 +16,8 @@
       <input ng-model = "ac.scoreIn" type="text" placeholder="Score" value="">
       <input ng-model = "ac.date_completedIn" type="text" placeholder="Date Completed" value="">
       <button ng-click = "ac.addAssignment()" class="btn"type="button" name="button">Add</button>
+      <input ng-model = "ac.searchIn" type="text" placeholder="Search by Name" value="">
+      <button ng-click = "ac.search()" class="btn"type="button" name="button">Search</button>
       <div ng-repeat="thingy in ac.allRecords">
         <h2>{{thingy.assignment}}</h2>
         <p>{{thingy.name}}</p>
