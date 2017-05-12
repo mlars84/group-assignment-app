@@ -40,14 +40,14 @@ myApp.controller('AssignmentController', function($http) {
     });
   }; //end getAll
 
-  vm.search = function() {
-    console.log('in search');
-    $http({
-      method: 'GET',
-      url: '/assignments/:name?'
-    }).then(function(response){
-      console.log(response.data);
-    });
-  }; // end search function
+  // vm.search = function() {
+  //   console.log('in search');
+  //   $http({
+  //     method: 'GET',
+  //     url: '/assignments/:name?'
+  //   }).then(function(response){
+  //     console.log(response.data);
+  //   });
+  // }; // end search function
 
 }); // end controller

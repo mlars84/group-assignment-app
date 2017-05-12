@@ -14,13 +14,13 @@ router.get('/', function(req, res) {
 });
 
 //get to get single name that was searched for
-router.get('/', function(req, res) {
-  console.log('GET SEARCH ONE');
-  assignmentModel.assignments.find({name:req.params.name}).then(function(data) {
-    console.log('data:', data);
-    res.send(data);
-  });
-});
+// router.get('/', function(req, res) {
+//   console.log('GET SEARCH ONE');
+//   assignmentModel.assignments.find({name:req.params.name}).then(function(data) {
+//     console.log('data:', data);
+//     res.send(data);
+//   });
+// });
 
 //see comment line 16 in app.js, re: path name
 router.post('/', function(req, res) {
