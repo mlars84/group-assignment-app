@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('AssignmentController', function() {
+myApp.controller('AssignmentController', function($http) {
   console.log('NG');
 
   var vm = this;
@@ -15,8 +15,13 @@ myApp.controller('AssignmentController', function() {
       date_completed: vm.date_completedIn
     }; // end objectToSend
     console.log('this is objectToSend', objectToSend);
-    
+    $http({
+      method: 'POST',
+      url: '/assignments',
+      data: objectToSend
+    }).then(function(response) {
+      console.log(response);
+    });
   }; // end getAssignment
-
 
 }); // end controller

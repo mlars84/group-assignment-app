@@ -3,9 +3,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
-require('./modules/db');
-var routes = require('./routes/routes');
-var assignments = require ('./models/assignments');
+var db = require('./modules/db');
+var assignmentRoutes = require('./routes/routes');
 
 // global
 var port =  process.env.PORT || 8000;
@@ -14,7 +13,7 @@ var port =  process.env.PORT || 8000;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use('/routes', routes);
+app.use('/assignments', assignmentRoutes);
 
 app.get('/', function(req, res){
   res.sendFile(path.resolve('public/views/index.html'));
