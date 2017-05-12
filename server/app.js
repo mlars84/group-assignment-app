@@ -3,8 +3,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
-var db = require('./modules/db');
-var routes = require('./models/routes');
+require('./modules/db');
+var routes = require('./routes/routes');
+var assignments = require ('./models/assignments');
 
 // global
 var port =  process.env.PORT || 8000;
@@ -13,6 +14,7 @@ var port =  process.env.PORT || 8000;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use('/routes', routes);
 
 app.get('/', function(req, res){
   res.sendFile(path.resolve('public/views/index.html'));
@@ -22,5 +24,3 @@ app.get('/', function(req, res){
 app.listen(port, function(){
   console.log('server up on:', port);
 });
-
-// modules.exports = app;   --> do we need this???
