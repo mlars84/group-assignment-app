@@ -5,6 +5,8 @@ myApp.controller('AssignmentController', function($http) {
 
   var vm = this;
 
+  vm.allRecords = [];
+
   vm.addAssignment = function(){
     console.log('add button clicked');
 
@@ -20,8 +22,20 @@ myApp.controller('AssignmentController', function($http) {
       url: '/assignments',
       data: objectToSend
     }).then(function(response) {
-      console.log(response);
+      console.log(response.statusText);
     });
-  }; // end getAssignment
+  }; // end addAssignment
+
+  vm.getAll = function(){
+    console.log('in getAll');
+
+    $http({
+      method: 'GET',
+      url: '/assignments',
+    }).then(function(response) {
+      console.log(response.data);
+      vm.allRecords = response.data;
+    });
+  };
 
 }); // end controller

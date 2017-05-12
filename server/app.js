@@ -13,6 +13,7 @@ var port =  process.env.PORT || 8000;
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+//pac man starts at server, eats this part of path and then calls assignmentRoutes, which calls routes/routes and ends with / in router.post
 app.use('/assignments', assignmentRoutes);
 
 app.get('/', function(req, res){

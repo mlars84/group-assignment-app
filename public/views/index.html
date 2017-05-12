@@ -9,14 +9,19 @@
     <link rel="stylesheet" href="styles/styles.css">
   </head>
   <body ng-app="myApp">
-    <div ng-controller="AssignmentController as ac" ng-init="">
+    <div ng-controller="AssignmentController as ac" ng-init="ac.getAll()">
       <h1>Group Assignment App</h1>
       <input ng-model = "ac.assignmentIn" type="text" placeholder="Assignment Name" value="">
       <input ng-model = "ac.nameIn" type="text" placeholder="Student Name" value="">
       <input ng-model = "ac.scoreIn" type="text" placeholder="Score" value="">
       <input ng-model = "ac.date_completedIn" type="text" placeholder="Date Completed" value="">
       <button ng-click = "ac.addAssignment()" class="btn"type="button" name="button">Add</button>
-      <div id="outputDiv" class="container"></div>
+      <div ng-repeat="thingy in ac.allRecords">
+        <h2>{{thingy.assignment}}</h2>
+        <p>{{thingy.name}}</p>
+        <p>{{thingy.score}}</p>
+        <p>{{thingy.date_completed}}</p>
+      </div>
     </div>
   </body>
 </html>
